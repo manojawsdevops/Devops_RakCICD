@@ -1,0 +1,19 @@
+name: ci
+on :
+  push: 
+    branches: [main]
+  pull_request_review:
+    branches: [main]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs_on:
+    steps:
+      - users: action/checkout@v2
+      - name: Run echo
+        run: echo hello world
+      - name: Run shh
+        run: shell.sh
+ 
+    
