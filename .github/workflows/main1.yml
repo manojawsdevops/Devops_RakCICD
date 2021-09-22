@@ -14,6 +14,5 @@ jobs:
         serverUrl: http://localhost:8085/repository/maven-releases/
         username: admin
         password: ${{ secrets.NEXUS_PASSWORD }}
-        applicationId: sample-maven
         stage: Build
         target: ./target/
