@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Nexus IQ Policy Evaluation
-      uses: sonatype-nexus-community/https://github.com/manojawsdevops/Devops_RakCICD.git@main
+      uses: sonatype-nexus-community/iq-github-action@master
       with:
         serverUrl: http://localhost:8085/repository/maven-releases/
         username: admin
