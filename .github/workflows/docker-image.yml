@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build -t devops:v1 -f /home/bandaru/Desktop/docker/docker/dockerfile .
+      run: docker build -t devops:v11 -f /home/bandaru/Desktop/docker/docker/dockerfile .
