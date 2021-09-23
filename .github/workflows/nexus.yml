@@ -16,9 +16,6 @@ jobs:
    
         serverUrl: http://localhost:8085/repository/devops_cicd/
         username: admin
-        password: ${{ secrets.$NEXUS_PASSWORD }}
-        format: maven2
-        repository: maven-releases
-        coordinates: groupId=com.example artifactId=app version=1.0.0
+        password: ${{ secrets.$NEXUS_PASSWORD }} 
         assets: extension=bar
         filename: Devops_RakCICD-48.bar
