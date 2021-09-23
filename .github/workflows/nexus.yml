@@ -13,6 +13,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    with:
    
         serverUrl: http://localhost:8085/repository/devops_cicd/
         username: admin
