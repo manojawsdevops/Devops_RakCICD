@@ -1,0 +1,28 @@
+name: Docker & OC
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKERUSER_NAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERUSER_PWD}}
+      run: |
+        docker login -u $DOCKERUSER_NAME -p $DOCKERUSER_PWD
+    - name: Build the Docker image
+      run: docker build -t firstimage:v1 --file dockerfilenew . 
+    - name: Docker tag and Docker push
+      run: |
+        docker tag firstimage:v1 ${{secrets.DOCKERUSER_NAME}}/dockerimage:v1
+        docker push ${{secrets.DOCKER_USER}}/dockerimage:v1
