@@ -1,20 +1,4 @@
-name: Java CI
-
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Build with Ant
-        run: ant -noinput -buildfile build.xml
+name: Docker Image CI
         
 on:
   push:
@@ -34,11 +18,15 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        OC_USERNAME: ${{secrets.OC_USERNAME}}
+        OC_PASSWORD: ${{secrets.OC_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build -t firstimage:v1 --file dockerfilenew . 
-    - name: Docker tag and Docker push
+    - name: oc login,using oc project,Docker tag and Docker push
       run: |
-        docker tag firstimage:v1 ${{secrets.DOCKERUSER_NAME}}/dockerimage:v1
-        docker push ${{secrets.DOCKER_USER}}/dockerimage:v1
+        oc login -u $OC_USERNAME -p $OC_PASSWORD
+        oc project manojprod
+        docker tag firstimage:v1 default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/dockerimage:v1
+        docker push default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/dockerimage:v1
