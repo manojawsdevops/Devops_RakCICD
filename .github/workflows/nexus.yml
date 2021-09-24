@@ -21,6 +21,5 @@ jobs:
         password: ${{ secrets.NEXUS_PASSWORD }}
         format: raw
         repository: devops_cicd
-        coordinates: groupId=org.apache.maven artifactId=Application1
         assets: extension=bar 
         filename: /home/bandaru/Music/Application1.bar
