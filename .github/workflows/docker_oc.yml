@@ -25,7 +25,7 @@ jobs:
       run: docker build -t firstimage:v1 --file dockerfilenew . 
     - name: oc login,using oc project,Docker tag and Docker push
       run: |
-        oc login -u $OC_USERNAME -p $OC_PASSWORD
+        oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
         oc project manojprod
         docker tag firstimage:v1 default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/dockerimage:v1
         docker push default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/dockerimage:v1
