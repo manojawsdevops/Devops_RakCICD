@@ -16,4 +16,4 @@ jobs:
         projectBaseDir: "/root/Application1"
         projectKey: "sonarqube"
         projectName: "sonarqube"
-        projectVersion: "v0.0.1
+        projectVersion: "v0.0.1"
