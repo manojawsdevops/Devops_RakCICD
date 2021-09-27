@@ -14,6 +14,6 @@ jobs:
         host: ${{ secrets.SONAR_HOST }}
         login: ${{ secrets.SONAR_TOKEN }}
         projectBaseDir: "/root/Application1"
-        projectKey: "my-custom-project"
-        projectName: "my-custom-project"
-        projectVersion: "v0.0.1"
+        projectKey: "Application1"
+        projectName: "my-custom-project-name"
+        projectVersion: "v0.0.1
