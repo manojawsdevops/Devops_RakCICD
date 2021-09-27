@@ -1,0 +1,17 @@
+name: sonarqube_scan
+
+on: push
+
+jobs:
+  sonarQubeTrigger:
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@master
+      with:
+        projectBaseDir: "/root/Application1"
+        projectKey: "my-custom-project"
+        projectName: "my-custom-project"
+        projectVersion: "v0.0.1"
