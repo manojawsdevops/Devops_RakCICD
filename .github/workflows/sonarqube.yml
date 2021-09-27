@@ -13,7 +13,7 @@ jobs:
       with:
         host: ${{ secrets.SONAR_HOST }}
         login: ${{ secrets.SONAR_TOKEN }}
-        projectBaseDir: "/home/bandaru/Downloads/Application1"
+        projectBaseDir: "/root/Application1"
         projectKey: "my-custom-project"
         projectName: "my-custom-project"
         projectVersion: "v0.0.1"
