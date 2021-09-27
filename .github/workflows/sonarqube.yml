@@ -14,8 +14,5 @@ jobs:
         host: ${{ secrets.SONAR_HOST }}
         login: ${{ secrets.SONAR_TOKEN }}
         
-        projectBaseDir: "/root/Application1"
-        projectKey: "sonarqube"
-        projectName: "sonarqube"
-        projectVersion: "v0.0.1"
+       
 
