@@ -1,9 +1,11 @@
+name: sonarqube scanning
+
 on: push
-name: Main Workflow
+
 jobs:
   sonarQubeTrigger:
     name: SonarQube Trigger
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@master
     - name: SonarQube Scan
@@ -13,5 +15,5 @@ jobs:
         login: ${{ secrets.SONAR_TOKEN }}
         projectBaseDir: "/home/bandaru/Downloads/"
         projectKey: "my-custom-project"
-        projectName: "my-custom-project-name"
+        projectName: "my-custom-project"
         projectVersion: "v0.0.1"
