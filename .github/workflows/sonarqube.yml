@@ -17,7 +17,7 @@ jobs:
         projectBaseDir: "Application1"
         sonar.projectKey: "Application1"
         sonar.projectName: "Application1"
-        sonar.sourceEncoding: UTF-8
+        
 
         
        
