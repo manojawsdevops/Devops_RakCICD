@@ -15,6 +15,10 @@ jobs:
         login: ${{ secrets.SONAR_TOKEN }}
         Dsonar.scm.provider: =git
         projectBaseDir: "Application1"
+        sonar.projectKey: "Application1"
+        sonar.projectName: "Application1"
+        sonar.sourceEncoding: UTF-8
+
         
        
 
