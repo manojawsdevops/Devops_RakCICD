@@ -13,7 +13,7 @@ jobs:
       with:
         host: ${{ secrets.SONAR_HOST }}
         login: ${{ secrets.SONAR_TOKEN }}
-        Dsonar.scm.provider: =git
+        sonar.scm.provider: =git
         projectBaseDir: =Application1
         sonar.projectKey: =Application1
         sonar.projectName: =Application1
