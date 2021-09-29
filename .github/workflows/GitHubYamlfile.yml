@@ -1,0 +1,61 @@
+name: RAKBANK_CICD
+
+
+on:
+  
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+  
+jobs:
+  Ant_build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Ant
+        run: ant -noinput -buildfile build.xml
+
+   SonarQubeTrigger:
+     name: SonarQube_Scanner
+     runs-on: self-hosted
+     steps:
+     - uses: actions/checkout@master
+     - name: SonarQube_Scan
+       uses: kitabisa/sonarqube-action@master
+       with:
+          host: ${{ secrets.SONAR_HOST }}
+          login: ${{ secrets.SONAR_TOKEN}}
+          projectKey: "Devops_RakCICD"
+          projectName: "Devops_RakCICD"
+          projectVersion: "v0.0.1"
+          
+   BarFile Deploy in Openshift:
+     runs-on: self-hosted
+     steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        OC_USERNAME: ${{secrets.OC_USERNAME}}
+        OC_PASSWORD: ${{secrets.OC_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER --password $(oc whoami -t) default-route-openshift-image-registry.apps.ocp4.eidikointernal.com
+    - name: Build the Docker image
+      run: docker build -t image:v1 --file dockerfilenew . 
+    - name: oc login,oc project,Docker tag & Docker push
+      run: |
+        /usr/local/bin/ && ./oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
+        /usr/local/bin/ && ./oc project manojprod
+        docker tag image:v1 default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/manojprod/devopsimage:v1
+        docker push default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/manojprod/devopsimage:v1
+        /home/bandaru/Downloads/devshift.sh
+  
+        
