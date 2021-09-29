@@ -11,11 +11,11 @@ jobs:
      - name: SonarQube_Scan
        uses: kitabisa/sonarqube-action@master
        with:
-          host: ${{ secrets.SONARQUBE_HOST }}
-          login: ${{ secrets.SONARQUBE_TOKEN }}
+          host: ${{ secrets.SONAR_HOST }}
+          login: ${{ secrets.SONAR_TOKEN}}
           projectBaseDir: "Application1"
-          projectKey: "New_Repo"
-          projectName: "New_Repo"
+          projectKey: "Devops_RakCICD"
+          projectName: "Devops_RakCICD"
           projectVersion: "v0.0.1"
   
        
