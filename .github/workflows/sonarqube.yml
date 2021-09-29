@@ -18,7 +18,7 @@ jobs:
         sonar.projectName: =Application1
         sonar.projectVersion: =1.0
         sonar.sourceEncoding: =UTF-8
-        projectBaseDir: "/root/Aplication1"
+        
        
         
 
