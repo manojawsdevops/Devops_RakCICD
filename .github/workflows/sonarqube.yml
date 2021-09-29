@@ -13,12 +13,15 @@ jobs:
       with:
         host: ${{ secrets.SONAR_HOST }}
         login: ${{ secrets.SONAR_TOKEN }}
-        sonar.scm.provider: =git
-        sonar.projectKey: =Application1
-        sonar.projectName: =Application1
-        sonar.projectVersion: =1.0
-        sonar.sourceEncoding: =UTF-8
         
+uses: kitabisa/sonarqube-action@master
+with:
+ sonar.scm.provider: =git
+ sonar.projectKey: =Application1
+ sonar.projectName: =Application1
+ sonar.projectVersion: =1.0
+ sonar.sourceEncoding: =UTF-8
+  
        
         
 
