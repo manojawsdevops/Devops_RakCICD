@@ -14,9 +14,7 @@ jobs:
         host: ${{ secrets.SONAR_HOST }}
         login: ${{ secrets.SONAR_TOKEN }}
         sonar.scm.provider: =git
-        projectBaseDir: =Application1
-        sonar.projectKey: =Application1
-        sonar.projectName: =Application1
+       
         
 
         
