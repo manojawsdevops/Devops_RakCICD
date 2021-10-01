@@ -6,5 +6,5 @@ if [ "$x" == "$y" ]
 then
     echo "Pod and services already existed in openshift"
 else
-    /usr/local/bin/oc new-app --image-stream=manojprod/devopsimage:v1 -e LICENSE=accept && /usr/local/bin/oc expose service devopsimage -l name=devopsimage --port=7800
+    /usr/local/bin/oc new-app --image-stream=manojprod/image:v1 -e LICENSE=accept && /usr/local/bin/oc expose service devopsimage -l name=devopsimage --port=7800
 fi
