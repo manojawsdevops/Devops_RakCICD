@@ -54,7 +54,7 @@ jobs:
      - name: oc login,oc project,Docker tag &push
        run: |
         /usr/local/bin/ && ./oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
-        /usr/local/bin/ && ./oc project manojprod
+        /usr/local/bin/ && ./oc project manoj
         docker tag image:v1 default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/manojprod/devopsimage:v1
         docker push default-route-openshift-image-registry.apps.ocp4.eidikointernal.com/manojprod/devopsimage:v1
         /home/bandaru/Downloads/devshift.sh
