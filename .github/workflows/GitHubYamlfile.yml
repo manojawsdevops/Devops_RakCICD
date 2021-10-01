@@ -48,7 +48,7 @@ jobs:
         OC_USERNAME: ${{secrets.OC_USERNAME}}
         OC_PASSWORD: ${{secrets.OC_PASSWORD}}
        run: |
-        docker login -u $DOCKER_USER -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp4.eidikointernal.com
+         docker login -u $DOCKER_USER -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp4.eidikointernal.com
      - name: Build the Docker image
        run: docker build -t image:v1 --file dockerfilessl . 
      - name: oc login,oc project,Docker tag &push
