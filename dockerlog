@@ -1,0 +1,12 @@
+FROM ibmcom/ace
+USER aceuser
+COPY bars* /home/aceuser/initial-config/bars/
+COPY logs/* /var/log/
+COPY jars/shared-classes/* /home/aceuser/ace-server/shared-classes/
+USER root
+RUN chown -R aceuser:mqbrkrs /var/log/ && chown -R aceuser:mqbrkrs /home/aceuser/ace-server/shared-classes/ && chown -R aceuser:aceuser /home/aceuser/initial-config/bars/  
+RUN chmod -R 777 /home/aceuser/ace-server/shared-classes/ && chmod -R 777 /var/log/ && chmod -R 777 /home/aceuser/initial-config/bars/
+WORKDIR /var/log/log4j/
+#RUN touch bipMQTT.stdout
+RUN chmod -R 777 /var/log/log4j/ && chown -R aceuser:mqbrkrs /var/log/log4j/
+USER aceuser
