@@ -1,6 +1,6 @@
 FROM ibmcom/ace
 USER aceuser
-COPY bars* /home/aceuser/initial-config/bars/
+COPY Openshift_Log4J_Test_Application_Logtest_01112021.bar /home/aceuser/initial-config/bars/
 COPY logs/* /var/log/
 COPY jars/shared-classes/* /home/aceuser/ace-server/shared-classes/
 USER root
