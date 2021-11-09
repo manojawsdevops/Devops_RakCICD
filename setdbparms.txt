@@ -1,5 +1,5 @@
 # resource user password
 #setdbparms::truststore "my username" truststorepwd
 mqsisetdbparms -w /home/aceuser/ace-server -n LOKESHSOURCE -u LOKESH -p sarasu10
-brokerkeystore::password ignore sarasu10
-brokertruststore::password ignore sarasu10
+#brokerkeystore::password ignore sarasu10
+#brokertruststore::password ignore sarasu10
