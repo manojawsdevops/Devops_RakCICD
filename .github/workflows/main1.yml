@@ -19,8 +19,7 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}} 
         OC_USERNAME: ${{secrets.OC_USERNAME}}
-        OC_PASSWORD: ${{secrets.OC_PASSWORD}}
-        
+        OC_PASSWORD: ${{secrets.OC_PASSWORD}}    
     - name: Build the Docker image
       run: docker build -t image:v1 --file dockerfiledb . 
     - name: oc login,oc project,Docker tag & push
