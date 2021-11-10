@@ -19,7 +19,6 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USERNAME}} 
         OC_USERNAME: ${{secrets.OC_USERNAME}}
         OC_PASSWORD: ${{secrets.OC_PASSWORD}}     
-    - name: oc login,oc project,Docker tag &push
       run: |
         docker build -t image:v1 --file dockerfiledb .
         ./oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
