@@ -18,11 +18,10 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_USERNAME}} 
         OC_USERNAME: ${{secrets.OC_USERNAME}}
-        OC_PASSWORD: ${{secrets.OC_PASSWORD}}    
-    - name: Build the Docker image
-      run: docker build -t image:v1 --file dockerfiledb . 
+        OC_PASSWORD: ${{secrets.OC_PASSWORD}}     
     - name: oc login,oc project,Docker tag & push
       run: |
+        docker build -t image:v1 --file dockerfiledb .
         ./oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
         docker login -u $DOCKER_USERNAME -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp4.6.eidikointernal.com
         /usr/local/bin/ && ./oc project manoj1
