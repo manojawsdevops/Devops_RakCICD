@@ -20,7 +20,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Ant
+      - name: Build with Ant1
         run: ant -noinput -buildfile build.xml
 
   SonarQubeTrigger:
